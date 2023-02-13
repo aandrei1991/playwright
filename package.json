@@ -1,0 +1,17 @@
+{
+  "name": "spritecloud",
+  "version": "1.0.0",
+  "description": "Automated software interview project with Playwright",
+  "main": "index.js",
+  "scripts": {
+    "tests:api": "playwright test --config=api.config.ts --project=Chromium"
+  },
+  "author": "Alexandru Andrei",
+  "license": "ISC",
+  "dependencies": {
+    "prettier": "^2.8.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.30.0"
+  }
+}
