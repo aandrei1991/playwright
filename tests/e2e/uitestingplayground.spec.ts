@@ -43,8 +43,7 @@ test.describe.parallel("UI Testing Playground website scenarios", () => {
         classAttributePage.clickPrimaryButton()
     })
 
-    test("Hidden layers", async ({ page }) => {
-        // test.fail();
+    test.only("Hidden layers", async ({ page }) => {
         homePage = new UITestingPlaygroundHomePage(page)
         await homePage.navigateTo("Hidden Layers")
         hiddenLayersPage = new HiddenLayersPage(page)
@@ -103,7 +102,7 @@ test.describe.parallel("UI Testing Playground website scenarios", () => {
         await scrollbarsPage.clickTheHidingButton()
     })
 
-    test("Dynamic table", async ({ page }) => {
+    test.only("Dynamic table", async ({ page }) => {
         homePage = new UITestingPlaygroundHomePage(page)
         await homePage.navigateTo("Dynamic Table")
         dynamicTablePage = new DynamicTablePage(page)
@@ -111,7 +110,7 @@ test.describe.parallel("UI Testing Playground website scenarios", () => {
         await dynamicTablePage.calculateAndAssertValues()
     })
 
-    test("Progress Bar", async ({ page }) => {
+    test.only("Progress Bar", async ({ page }) => {
         homePage = new UITestingPlaygroundHomePage(page)
         await homePage.navigateTo("Progress Bar")
         progressBarPage = new ProgressBarPage(page)
