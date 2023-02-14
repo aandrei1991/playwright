@@ -1,0 +1,208 @@
+{
+  "config": {
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/alexandruandrei/workspace/spriteCloud/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "id": "Chromium",
+        "name": "Chromium",
+        "testDir": "/Users/alexandruandrei/workspace/spriteCloud/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/?(*.)@(spec|test).*"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/alexandruandrei/workspace/spriteCloud/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "id": "Firefox",
+        "name": "Firefox",
+        "testDir": "/Users/alexandruandrei/workspace/spriteCloud/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/?(*.)@(spec|test).*"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/alexandruandrei/workspace/spriteCloud/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "id": "Webkit",
+        "name": "Webkit",
+        "testDir": "/Users/alexandruandrei/workspace/spriteCloud/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/?(*.)@(spec|test).*"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "./playwright-report-e2e-json/test-results.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report-e2e",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "configFile": "/Users/alexandruandrei/workspace/spriteCloud/e2e.config.ts",
+    "rootDir": "/Users/alexandruandrei/workspace/spriteCloud/tests/e2e",
+    "quiet": false,
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.30.0",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "uitestingplayground.spec.ts",
+      "file": "uitestingplayground.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "UI Testing Playground website scenarios",
+          "file": "uitestingplayground.spec.ts",
+          "line": 15,
+          "column": 15,
+          "specs": [
+            {
+              "title": "Hidden layers",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Chromium",
+                  "projectName": "Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "status": "passed",
+                      "duration": 11882,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2023-02-14T20:09:07.733Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5e35f2db632cde4f5a95-6762ac841fead75356e1",
+              "file": "uitestingplayground.spec.ts",
+              "line": 46,
+              "column": 10
+            },
+            {
+              "title": "Dynamic table",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Chromium",
+                  "projectName": "Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "status": "passed",
+                      "duration": 1810,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Index CPU: 2\n"
+                        },
+                        {
+                          "text": "Index Chrome: 10\n"
+                        },
+                        {
+                          "text": "Value CPU: 6.6%\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2023-02-14T20:09:07.754Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5e35f2db632cde4f5a95-87cec9e1ed9fc3274e70",
+              "file": "uitestingplayground.spec.ts",
+              "line": 105,
+              "column": 10
+            },
+            {
+              "title": "Progress Bar",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Chromium",
+                  "projectName": "Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "status": "passed",
+                      "duration": 21031,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2023-02-14T20:09:07.750Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5e35f2db632cde4f5a95-077b4ad652aba7a4b502",
+              "file": "uitestingplayground.spec.ts",
+              "line": 113,
+              "column": 10
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

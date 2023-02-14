@@ -12,6 +12,15 @@ const config: PlaywrightTestConfig = {
         video: "off",
         screenshot: "off"
     },
+    reporter: [
+        ['json', {
+            outputFile: './playwright-report-api-json/test-results.json'
+        }],
+        ['html', {
+            outputFolder: 'playwright-report-api',
+            open: "never"
+        }]
+    ],
     projects: [{
         name: "Chromium",
         use: { browserName: "chromium" },

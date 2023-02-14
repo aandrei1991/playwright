@@ -1,0 +1,230 @@
+{
+  "config": {
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/alexandruandrei/workspace/spriteCloud/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "Chromium",
+        "name": "Chromium",
+        "testDir": "/Users/alexandruandrei/workspace/spriteCloud/tests/api",
+        "testIgnore": [],
+        "testMatch": [
+          "**/?(*.)@(spec|test).*"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/alexandruandrei/workspace/spriteCloud/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "Firefox",
+        "name": "Firefox",
+        "testDir": "/Users/alexandruandrei/workspace/spriteCloud/tests/api",
+        "testIgnore": [],
+        "testMatch": [
+          "**/?(*.)@(spec|test).*"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "/Users/alexandruandrei/workspace/spriteCloud/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "Webkit",
+        "name": "Webkit",
+        "testDir": "/Users/alexandruandrei/workspace/spriteCloud/tests/api",
+        "testIgnore": [],
+        "testMatch": [
+          "**/?(*.)@(spec|test).*"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "./playwright-report-api-json/test-results.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report-api",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "configFile": "/Users/alexandruandrei/workspace/spriteCloud/api.config.ts",
+    "rootDir": "/Users/alexandruandrei/workspace/spriteCloud/tests/api",
+    "quiet": false,
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.30.0",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "petstore.spec.ts",
+      "file": "petstore.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "API Testing",
+          "file": "petstore.spec.ts",
+          "line": 11,
+          "column": 15,
+          "specs": [
+            {
+              "title": "POST Request - Create new user",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Chromium",
+                  "projectName": "Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "status": "passed",
+                      "duration": 967,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2023-02-14T20:09:31.272Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f30e3988fad6ffa0e7e9-0b05e22d08e60b579c2c",
+              "file": "petstore.spec.ts",
+              "line": 12,
+              "column": 9
+            },
+            {
+              "title": "GET Request - Login with existing user and password combination",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Chromium",
+                  "projectName": "Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "status": "passed",
+                      "duration": 1362,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2023-02-14T20:09:31.256Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f30e3988fad6ffa0e7e9-650f16977227e4337ba0",
+              "file": "petstore.spec.ts",
+              "line": 42,
+              "column": 9
+            },
+            {
+              "title": "POST Request - Add a new pet to the store inventory",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Chromium",
+                  "projectName": "Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "status": "passed",
+                      "duration": 940,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2023-02-14T20:09:31.276Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f30e3988fad6ffa0e7e9-32717938c3b3d55c91b2",
+              "file": "petstore.spec.ts",
+              "line": 79,
+              "column": 9
+            },
+            {
+              "title": "POST Request - Place a new order",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "Chromium",
+                  "projectName": "Chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "status": "passed",
+                      "duration": 497,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2023-02-14T20:09:31.266Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f30e3988fad6ffa0e7e9-9cd166dd3b69048f0daa",
+              "file": "petstore.spec.ts",
+              "line": 105,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
