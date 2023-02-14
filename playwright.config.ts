@@ -11,6 +11,7 @@ const config: PlaywrightTestConfig = {
         video: "off",
         screenshot: "only-on-failure"
     },
+    reporter: [['html', { open: "never"}]],
     projects: [{
         name: "Chromium",
         use: { browserName: "chromium" },
