@@ -16,7 +16,7 @@ For any issue with configuring Playwright please consult their documentation: ht
 After the project is built, tests can be run using `npm run tests:all`
 
 # Running tests in CI/CD
-Tests are being ran in CI/CD currently at CircleCI https://app.circleci.com/pipelines/github/aandrei1991
+Tests are being ran in CI/CD currently at CircleCI https://app.circleci.com/pipelines/github/aandrei1991/spriteCloud/8/workflows/cdb9423a-2e5b-4922-a2b5-dd780b2f5cf8/jobs/7
 
 In order run it in different environments (Jenkins, TeamCity, etc.) additional configuration is needed per platform, however, the tests can be ran easily from the CLI, after installing all dependencies. A Jenkins server was configured using the following script:
 ```
