@@ -4,6 +4,8 @@
   "description": "Automated software interview project with Playwright",
   "main": "index.js",
   "scripts": {
+    "tests:all": "npm run tests:e2e && npm run tests:api",
+    "tests:e2e":"playwright test --config=e2e.config.ts --project=Chromium",
     "tests:api": "playwright test --config=api.config.ts --project=Chromium"
   },
   "author": "Alexandru Andrei",

@@ -1,114 +1,123 @@
 import { test, expect } from '@playwright/test'
+import { AJAXDataPage } from '../../pages/AJAXDataPage';
+import { ClassAttributePage } from '../../pages/ClassAttributePage';
+import { ClickPage } from '../../pages/ClickPage';
+import { ClientSideDelayPage } from '../../pages/ClientSideDelayPage';
+import { DynamicIDPage } from '../../pages/DynamicIDPage';
+import { HiddenLayersPage } from '../../pages/HiddenLayersPage';
+import { LoadDelayPage } from '../../pages/LoadDelayPage';
+import { TextInputPage } from '../../pages/TextInputPage';
+import { ScrollbarsPage } from '../../pages/ScrollbarsPage'
+import { UITestingPlaygroundHomePage } from '../../pages/UITestingPlaygroundHomePage'
+import { DynamicTablePage } from '../../pages/DynamicTablePage';
+import { ProgressBarPage } from '../../pages/ProgressBarPage';
 
-test("Simple basic test", async ({ page }) => {
-    await page.goto("http://www.uitestingplayground.com")
-    const pageTitle = await page.locator("h1")
-    await expect(pageTitle).toContainText("UI Test Automation")
-})
+test.describe.parallel("UI Testing Playground website scenarios", () => {
 
-test("Click on Dynamic ID button", async ({ page }) => {
-    await page.goto("http://www.uitestingplayground.com")
-    await page.click("text=Dynamic ID")
-    await page.click(".btn-primary")
-})
+    let homePage: UITestingPlaygroundHomePage
+    let dynamicIDPage: DynamicIDPage
+    let classAttributePage: ClassAttributePage
+    let hiddenLayersPage: HiddenLayersPage
+    let loadDelayPage: LoadDelayPage
+    let ajaxDataPage: AJAXDataPage
+    let clientSideDelayPage: ClientSideDelayPage
+    let clickPage: ClickPage
+    let textInputPage: TextInputPage
+    let scrollbarsPage: ScrollbarsPage
+    let dynamicTablePage: DynamicTablePage
+    let progressBarPage: ProgressBarPage
 
-test("Class attribute", async ({ page }) => {
-    await page.goto("http://www.uitestingplayground.com")
-    await page.click("text=Class attribute")
-    await page.click(".btn-primary")
-})
+    test("Dynamic ID", async ({ page }) => {
+        homePage = new UITestingPlaygroundHomePage(page)
+        await homePage.navigateTo("Dynamic ID")
+        dynamicIDPage = new DynamicIDPage(page)
+        dynamicIDPage.assertTitle()
+        dynamicIDPage.clickDynamicIDButton()
+    })
 
-test("Hidden layers", async ({ page }) => {
-    await page.goto("http://www.uitestingplayground.com")
-    await page.click("text=Hidden layers")
-    await page.click("#greenButton")
-    await page.click("#blueButton")
-})
+    test("Class attribute", async ({ page }) => {
+        homePage = new UITestingPlaygroundHomePage(page)
+        await homePage.navigateTo("Class Attribute")
+        classAttributePage = new ClassAttributePage(page)
+        classAttributePage.assertTitle()
+        classAttributePage.clickPrimaryButton()
+    })
 
-test("Load delay", async ({ page }) => {
-    await page.goto("http://www.uitestingplayground.com")
-    await page.click("text=Load delay")
-    const button = await page.locator(".btn-primary")
-    await expect(button).toContainText("Button Appearing After Delay")
-})
+    test("Hidden layers", async ({ page }) => {
+        // test.fail();
+        homePage = new UITestingPlaygroundHomePage(page)
+        await homePage.navigateTo("Hidden Layers")
+        hiddenLayersPage = new HiddenLayersPage(page)
+        await hiddenLayersPage.assertTitle()
+        await hiddenLayersPage.clickGreenButton()
+        await expect(hiddenLayersPage.clickGreenButton()).rejects.toThrow()
+    })
 
-test("AJAX Data", async ({ page }) => {
-    await page.goto("http://www.uitestingplayground.com")
-    await page.click("text=AJAX Data")
-    await page.click("#ajaxButton")
-    const p = await page.locator("#content > p")
-    await expect(p).toBeVisible({ timeout: 20000 })
-    await expect(p).toContainText("Data loaded with AJAX get request.")
-})
+    test("Load delay", async ({ page }) => {
+        homePage = new UITestingPlaygroundHomePage(page)
+        await homePage.navigateTo("Load Delay")
+        loadDelayPage = new LoadDelayPage(page)
+        await loadDelayPage.assertDelayedButtonToContainText()
+    })
 
-test("Client side delay", async ({ page }) => {
-    await page.goto("http://www.uitestingplayground.com")
-    await page.click("text=Client side delay")
-    await page.click("#ajaxButton")
-    const p = await page.locator("#content > p")
-    await expect(p).toBeVisible({ timeout: 20000 })
-    await expect(p).toContainText("Data calculated on the client side.")
-})
+    test("AJAX Data", async ({ page }) => {
+        homePage = new UITestingPlaygroundHomePage(page)
+        await homePage.navigateTo("AJAX Data")
+        ajaxDataPage = new AJAXDataPage(page)
+        await ajaxDataPage.clickAJAXButton()
+        await ajaxDataPage.waitAndAssertAJAXData()
+    })
 
-test("Click", async ({ page }) => {
-    await page.goto("http://www.uitestingplayground.com")
-    await page.click("text=Click")
-    const button = await page.locator("#badButton")
-    await button.click()
-    const buttonClass = await button.getAttribute("class")
-    await expect(buttonClass).toContain("btn-success")
-})
+    test("Client side delay", async ({ page }) => {
+        homePage = new UITestingPlaygroundHomePage(page)
+        await homePage.navigateTo("Client Side Delay")
+        clientSideDelayPage = new ClientSideDelayPage(page)
+        await clientSideDelayPage.clickAJAXButton()
+        await clientSideDelayPage.waitAndAssertClientData()
+    })
 
-test("Text input", async ({ page }) => {
-    const updateString = "Updated via automation"
-    await page.goto("http://www.uitestingplayground.com")
-    await page.click("text=Text input")
-    await page.click("#newButtonName")
-    await page.keyboard.type(updateString, { delay: 100 });
-    await page.click("#updatingButton")
-    await expect(page.locator("#updatingButton")).toHaveText(updateString)
-})
+    test("Click", async ({ page }) => {
+        homePage = new UITestingPlaygroundHomePage(page)
+        await homePage.navigateTo("Click")
+        clickPage = new ClickPage(page)
+        await clickPage.assertTitle()
+        await clickPage.clickButton()
+        await clickPage.assertButtonWasClicked()
+    })
 
-test("Scrollbars", async ({ page }) => {
-    await page.goto("http://www.uitestingplayground.com")
-    await page.click("text=Scrollbars")
-    await page.click("#hidingButton")
-})
+    test("Text input", async ({ page }) => {
+        const updatedString = "Updated via automation"
+        homePage = new UITestingPlaygroundHomePage(page)
+        await homePage.navigateTo("Text Input")
+        textInputPage = new TextInputPage(page)
+        await textInputPage.assertTitle()
+        await textInputPage.typeNewNameIntoInput(updatedString)
+        await textInputPage.assertButtonNameWasChanged(updatedString)
+    })
 
-test("Dynamic table", async ({ page }) => {
-    await page.goto("http://www.uitestingplayground.com")
-    await page.click("text=Dynamic table")
-    const headerRowTexts = await page.getByRole("columnheader").allInnerTexts()
-    const indexCPU = await headerRowTexts.indexOf("CPU")
-    console.log("Index CPU: " + indexCPU)
-    const rowTexts = await page.getByRole("cell").allInnerTexts()
-    const indexChrome = await rowTexts.indexOf("Chrome")
-    console.log("Index Chrome: " + indexChrome)
-    const valueCPU = await rowTexts.at(indexChrome + indexCPU)
-    console.log("Value CPU: " + valueCPU)
-    const warningRow = await page.locator(".bg-warning")
-    await expect(warningRow).toHaveText("Chrome CPU: " + valueCPU)
-})
+    test("Scrollbars", async ({ page }) => {
+        homePage = new UITestingPlaygroundHomePage(page)
+        await homePage.navigateTo("Scrollbars")
+        scrollbarsPage = new ScrollbarsPage(page)
+        await scrollbarsPage.assertTitle()
+        await scrollbarsPage.clickTheHidingButton()
+    })
 
-test("Verify text", async ({ page }) => {
-    await page.goto("http://www.uitestingplayground.com")
-    await page.click("text=Verify text")
-    const webElement = await page.locator("//span[normalize-space(.)='Welcome UserName!']")
-    await expect(webElement).toHaveCount(1)
-})
+    test("Dynamic table", async ({ page }) => {
+        homePage = new UITestingPlaygroundHomePage(page)
+        await homePage.navigateTo("Dynamic Table")
+        dynamicTablePage = new DynamicTablePage(page)
+        await dynamicTablePage.assertTitle()
+        await dynamicTablePage.calculateAndAssertValues()
+    })
 
-test("Progress Bar", async ({ page }) => {
-    await page.goto("http://www.uitestingplayground.com")
-    await page.click("text=Progress Bar")
-    await page.click("#startButton")
-    console.log(await page.locator("#progressBar").getAttribute("aria-valuenow"))
-    await expect(page.locator("#progressBar")).toHaveAttribute('aria-valuenow', "75", { timeout: 30000 })
-    await page.click("#stopButton")
-    await expect(page.locator("#result")).toContainText("Result: 0")
-})
-
-test("Visibility", async ({ page }) => {
-    await page.goto("http://www.uitestingplayground.com")
-    await page.click("text=Visibility")
-
+    test("Progress Bar", async ({ page }) => {
+        homePage = new UITestingPlaygroundHomePage(page)
+        await homePage.navigateTo("Progress Bar")
+        progressBarPage = new ProgressBarPage(page)
+        await progressBarPage.assertTitle()
+        await progressBarPage.startTheCounter()
+        await progressBarPage.waitForPercentageThenStop()
+        await progressBarPage.assertResultToContainZero()
+    })
 })
