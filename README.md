@@ -24,16 +24,6 @@ npm install
 npx playwright install --with-deps 
 npm run tests:all
 ```
-# Calliope.pro results
-Currently work in progress as the results could not be matched by the uploader even in the json format.
-
-# Calliope.pro 1 improvement point and 1 new feature
-Improvement point:
-- consider parsing documents from Playwright test results as json files
-
-Feature:
-- I don't see any new features that can be added at the current time
-
 # What I used to select the scenarios
 - For e2e tests I've used the most interesting scenarios which can be also encountered on a daily work load.
 - For api tests I've used the happy path flow of the application that would have real-life usage
